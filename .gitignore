@@ -1,0 +1,19 @@
+# Root level gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Env files (extra safety — already in sub-folders)
+**/.env
+**/.env.local
+
+# Dependencies (extra safety)
+**/node_modules/
+
+# Next.js build
+**/.next/
