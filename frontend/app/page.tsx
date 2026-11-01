@@ -100,9 +100,25 @@ export default function LandingPage() {
 
         {menuOpen && (
           <div className="border-t border-slate-200 px-4 py-4 md:hidden dark:border-slate-800">
-            <Link href="/courses" className="block py-2 text-sm text-slate-600 dark:text-slate-300">Courses</Link>
-            <a href="#features" className="block py-2 text-sm text-slate-600 dark:text-slate-300">Features</a>
-            <a href="#how-it-works" className="block py-2 text-sm text-slate-600 dark:text-slate-300">How it Works</a>
+            <Link href="/courses" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-slate-600 dark:text-slate-300">Courses</Link>
+            <a href="#features" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-slate-600 dark:text-slate-300">Features</a>
+            <a href="#how-it-works" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-slate-600 dark:text-slate-300">How it Works</a>
+            <div className="mt-3 border-t border-slate-200 pt-3 dark:border-slate-700">
+              {user ? (
+                <Link href={`/${user.role}`} onClick={() => setMenuOpen(false)} className="block w-full btn-primary text-center text-sm">
+                  Dashboard
+                </Link>
+              ) : (
+                <div className="flex flex-col gap-2">
+                  <Link href="/login" onClick={() => setMenuOpen(false)} className="block w-full btn-ghost text-center text-sm">
+                    Log in
+                  </Link>
+                  <Link href="/register" onClick={() => setMenuOpen(false)} className="block w-full btn-primary text-center text-sm">
+                    Get Started
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </header>
