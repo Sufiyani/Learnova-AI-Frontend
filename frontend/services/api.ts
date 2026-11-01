@@ -95,7 +95,7 @@ export const userApi = {
 // ─────────────────────────────────────────────
 export const courseApi = {
   list: (params?: Record<string, string | number | boolean>) =>
-    api.get<{ data: { data: Course[] }; pagination: Pagination }>("/courses", { params }),
+    api.get<{ data: Course[]; pagination: Pagination }>("/courses", { params }),
   getById: (id: string) => api.get(`/courses/${id}`),
   create: (data: Partial<Course>) => api.post("/courses", data),
   update: (id: string, data: Partial<Course>) => api.put(`/courses/${id}`, data),
@@ -176,7 +176,7 @@ export const submissionApi = {
 // ─────────────────────────────────────────────
 export const quizApi = {
   list: (params?: Record<string, string | number>) =>
-    api.get<{ data: { data: Quiz[] }; pagination: Pagination }>("/quizzes", { params }),
+    api.get<{ data: Quiz[]; pagination: Pagination }>("/quizzes", { params }),
   getById: (id: string) => api.get(`/quizzes/${id}`),
   getResults: (id: string) => api.get(`/quizzes/${id}/results`),
   submitAttempt: (id: string, data: { answers: { selectedOption: number }[]; timeSpent?: number }) =>
